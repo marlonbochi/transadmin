@@ -2,9 +2,9 @@
 
 <div id="main">
 	<fieldset>
-		<form action="<?=URL::to('clientes/insert')?>" >
-			<p><label>Sample label:</label><input type="text" class="text-long" /></p>
-			<p><label>Sample label:</label><input type="text" class="text-medium" /><input type="text" class="text-small" /><input type="text" class="text-small" /></p>
+		<form action="<?=URL::to('clientes/insert');?>" class='form'>
+			<p><label>Sample label:</label><input type="text" class="text-long" data-myroles="required" /></p>
+			<p><label>Sample label:</label><input type="text" class="text-medium" data-myroles="required" /><input type="text" class="text-small" /><input type="text" class="text-small" /></p>
 		    <p><label>Sample label:</label>		    
 		    <select class='chzn-select select' data-placeholder="Selecione o Estado">
 		    	<option></option>

@@ -331,6 +331,9 @@ h3 {
 .chzn-container {
     float: left;
 }
+.error{
+    border-color: #d30000 !important;
+}
 
 /* Footer ---------------------------------------- */
 
