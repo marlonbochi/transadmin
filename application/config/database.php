@@ -97,6 +97,12 @@ return array(
 			'prefix'   => '',
 		),
 
+		'development' => array(
+            'driver'   => 'sqlite',
+            'database' => 'application',
+            'prefix'   => '',
+        ),
+
 	),
 
 	/*
