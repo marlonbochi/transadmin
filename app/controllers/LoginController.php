@@ -9,9 +9,48 @@ class LoginController extends BaseController
 	{
 		Asset::add('assets/js/login.js');
 		Asset::add('assets/css/login.css');
+
 		$view = View::make('login.index');
-		$this->layout->title = 'TransAdmin - Login';		
+
+		$mensagem = Session::get('mensagem_erro_login');
+
+		if (isset($mensagem)){
+			$view->mensagem =  Session::get('mensagem_erro_login');
+
+			Session::forget('mensagem_erro_login');
+		}else{
+			$view->mensagem =  '';
+		}
+		$this->layout->title = 'CMS - Login';			
+
 		$this->layout->content = $view;
+
+	}
+
+	public function action_logout()
+	{
+		Session::flush();
+		return Redirect::action('LoginController@showWelcome');
+
+	}
+
+	public function action_logar(){
+
+		$new_modulo = new Login();
+		$usuario = Input::get('usuario');
+		$senha = Input::get('senha');
+		$retorno = $new_modulo->busca_usuario($usuario, $senha);
+
+		if (!empty($retorno->senha)){
+			Session::put('usuario_nome', $retorno->nome_usuario);
+			Session::put('usuario_permitido', 'S');
+			Session::put('usuario_perfil', $retorno->id_perfil);
+
+			return Redirect::action('HomeController@showWelcome');
+		}else{
+			Session::put('mensagem_erro_login', 'Usuário ou Senha errados.');
+			return Redirect::action('LoginController@showWelcome');
+		}
 
 	}
 }

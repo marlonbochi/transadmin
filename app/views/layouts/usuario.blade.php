@@ -57,13 +57,7 @@
 		<section class="conteudo_site">
 			<div class="conteudo_layout">
 				<div id="containerHolder">
-					<div id="container_body">
-			        		@if(empty($menu))
-							{{View::make('comum.menu');}}
-							@else
-							{{$menu}}
-							@endif		
-												 
+					<div id="container_body_usuario">												 
 							{{$content}}
 						<div class="clear"></div>
         			</div>

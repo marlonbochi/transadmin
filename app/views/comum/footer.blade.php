@@ -1,3 +1,3 @@
 <div class="footer">
-	<p id="footer">Feel free to use and customize it. <a href="http://www.perspectived.com">Credit is appreciated.</a></p>
+	<p id="footer">CMS desenvolvido por Marlon Bochi</p>
 </div>
