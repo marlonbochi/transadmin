@@ -11,4 +11,17 @@ $(document).ready(function(){
 
 	$('.corpo_login').css('margin-left',($('.conteudo').width()/2)-($('.corpo_login').width()/2))
 	$('.corpo_login').css('margin-top',(($(window).height()/2)-($('.corpo_login').height()/2))-80)
+
+    var mensagem = $('.mensagem').text();
+
+    if (mensagem != ''){
+
+       $('.mensagem').slideDown('slow').delay(3000).slideUp('slow');
+
+    }
+});
+
+$(window).resize(function(){
+    $('.corpo_login').css('margin-left',($('.conteudo').width()/2)-($('.corpo_login').width()/2))
+    $('.corpo_login').css('margin-top',(($(window).height()/2)-($('.corpo_login').height()/2))-80)
 });

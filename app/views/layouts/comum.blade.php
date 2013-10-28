@@ -23,6 +23,7 @@
 	{{ HTML::style('comum/css/main.css') }}	
 	{{ HTML::style('comum/css/chosen.css') }}	
 	{{ HTML::style('comum/css/prettyPhoto.css') }}	
+	{{ Asset::setDomain(URL::to('/').'/')}}
 
 	<link rel="shortcut icon" href="<?=URL::to('/');?>/favicon.ico">
 	
@@ -42,9 +43,9 @@
 </head>
 <body>
 	<?php 
-		if (Session::get('usuario_permitido') != 'S' or Session::get('usuario_nome') == ''){
-			echo '<meta http-equiv="refresh" content="0;url='.URL::to('login').'">';
-		}
+		// if (Session::get('usuario_permitido') != 'S' or Session::get('usuario_nome') == ''){
+		// 	echo '<meta http-equiv="refresh" content="0;url='.URL::to('login').'">';
+		// }
 	?>
 	<div id="container">
 		<header>

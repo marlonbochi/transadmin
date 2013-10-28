@@ -57,6 +57,14 @@ header{
 .error_msg{
 	margin-top: 7px;
 }
+.mensagem{
+    width: 380px;
+    text-align: center;
+    font-size: 14px;
+    color: red;
+    font-family: Arial, sans-serif, Helvetica;
+    font-weight: bold;
+}
 /*css placeholder*/
 ::-webkit-input-placeholder { font-family: Arial, Helvetica, sans-serif;font-weight: bold;font-size: 12px;}
 ::-moz-placeholder {  font-family: Arial, Helvetica, sans-serif;font-weight: bold;font-size: 12px;} /* firefox 19+ */

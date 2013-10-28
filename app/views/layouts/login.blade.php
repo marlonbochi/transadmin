@@ -23,6 +23,7 @@
 	{{ HTML::style('comum/css/main.css') }}	
 	{{ HTML::style('comum/css/chosen.css') }}	
 	{{ HTML::style('comum/css/prettyPhoto.css') }}	
+	{{ Asset::setDomain(URL::to('/').'/')}}
 
 	<link rel="shortcut icon" href="favicon.ico">
 
