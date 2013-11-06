@@ -12,8 +12,11 @@
 */
 
 Route::get('/', 'HomeController@showWelcome');
-
-Route::get('clientes', 'ClientesController@showWelcome');
+//modulo de clientes
+Route::get('clientes', 'ClientesController@action_index');
 Route::get('clientes/insert', 'ClientesController@action_insert');
 
-Route::get('login', 'LoginController@showWelcome');
+//modulo de login
+Route::any('login', 'LoginController@showWelcome');
+Route::any('logar', 'LoginController@action_logar');
+Route::any('logout', 'LoginController@action_logout');

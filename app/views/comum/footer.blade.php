@@ -1,3 +1,3 @@
 <div class="footer">
-	<p id="footer">CMS desenvolvido por Marlon Bochi</p>
+	<p id="footer">Desenvolvido por Marlon Bochi</p>
 </div>

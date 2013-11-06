@@ -11,7 +11,7 @@ class Comum extends Eloquent
 
 					if(!empty($where)){
 						foreach ($where as $value) {
-							$resultado->where($value['parametro1'],$value['sinal'],$value['parametro2']);
+							$resultado->where($value['parametro1'],$value['sinal'], $value['parametro2']);
 						}
 					}
 

@@ -42,11 +42,6 @@
 
 </head>
 <body>
-	<?php 
-		// if (Session::get('usuario_permitido') != 'S' or Session::get('usuario_nome') == ''){
-		// 	echo '<meta http-equiv="refresh" content="0;url='.URL::to('login').'">';
-		// }
-	?>
 	<div id="container">
 		<header>
 			@if(empty($header))
@@ -56,7 +51,7 @@
 			@endif
 		</header>
 		<section class="conteudo_site">
-			<div class="conteudo_layout">
+			<div class="conteudo">
 				<div id="containerHolder">
 					<div id="container_body">
 			        		@if(empty($menu))

@@ -9,8 +9,8 @@ $(document).ready(function(){
         }
     });
 
-	$('.corpo_login').css('margin-left',($('.conteudo').width()/2)-($('.corpo_login').width()/2))
-	$('.corpo_login').css('margin-top',(($(window).height()/2)-($('.corpo_login').height()/2))-80)
+	$('.corpo').css('margin-left',($('.conteudo').width()/2)-($('.corpo').width()/2));
+	$('.corpo').css('margin-top',(($(window).height()/2)-($('.corpo').height()/2))-140);
 
     var mensagem = $('.mensagem').text();
 
@@ -22,6 +22,6 @@ $(document).ready(function(){
 });
 
 $(window).resize(function(){
-    $('.corpo_login').css('margin-left',($('.conteudo').width()/2)-($('.corpo_login').width()/2))
-    $('.corpo_login').css('margin-top',(($(window).height()/2)-($('.corpo_login').height()/2))-80)
+    $('.corpo').css('margin-left',($('.conteudo').width()/2)-($('.corpo').width()/2));
+    $('.corpo').css('margin-top',(($(window).height()/2)-($('.corpo').height()/2))-140);
 });

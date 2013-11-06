@@ -6,7 +6,7 @@ class ClientesController extends BaseController
 	{
 
 		$view = View::make('clientes.index');
-		$this->layout->title = 'CMS - Clientes';
+		$this->layout->title = 'TransAdmin - Clientes';
 
 		//acoes da pagina
 		$view->title_pagina = 'Clientes';
@@ -15,9 +15,8 @@ class ClientesController extends BaseController
 		$view->link_acao =  URL::to('clientes');
 
 		$new_modulo = new Comum();
-		$nome_tabela = 'cliente';
 
-		$clientes = $new_modulo->select_table($nome_tabela, null, null, 15);
+		$clientes = $new_modulo->select_table('cliente', null, null, 15);
 
 		$view->clientes = $clientes;
 		$view->mensagem = $mensagem;
@@ -29,7 +28,7 @@ class ClientesController extends BaseController
 	{
 
 		$view = View::make('clientes.insert');
-		$this->layout->title = 'CMS - Clientes::Inserção';
+		$this->layout->title = 'TransAdmin - Clientes::Inserção';
 
 		//acoes da pagina
 		$view->title_pagina = 'Clientes';
@@ -78,7 +77,7 @@ class ClientesController extends BaseController
 	{
 
 		$view = View::make('clientes.update');
-		$this->layout->title = 'CMS - Clientes::Edição';
+		$this->layout->title = 'TransAdmin - Clientes::Edição';
 
 		//acoes da pagina
 		$view->title_pagina = 'Clientes';
@@ -150,7 +149,7 @@ class ClientesController extends BaseController
 	{
 
 		$view = View::make('clientes.index');
-		$this->layout->title = 'CMS - Clientes::Exclusão';
+		$this->layout->title = 'TransAdmin - Clientes::Exclusão';
 
 		//acoes da pagina
 		$view->title_pagina = 'Clientes';

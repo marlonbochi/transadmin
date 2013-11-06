@@ -1,6 +1,13 @@
 header{
 	height: 0px;
 }
+.corpo{
+    width: 400px;
+    position: absolute;
+}
+.img_logo{
+    padding-bottom: 30px; 
+}
 .corpo_login{
 	background-color: #eeeeee;
 	position: absolute;

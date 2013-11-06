@@ -21,7 +21,8 @@ class LoginController extends BaseController
 		}else{
 			$view->mensagem =  '';
 		}
-		$this->layout->title = 'CMS - Login';			
+
+		$this->layout->title = 'TransAdmin - Login';			
 
 		$this->layout->content = $view;
 
@@ -36,16 +37,24 @@ class LoginController extends BaseController
 
 	public function action_logar(){
 
-		$new_modulo = new Login();
+		$new_modulo = new Comum();
 		$usuario = Input::get('usuario');
 		$senha = Input::get('senha');
-		$retorno = $new_modulo->busca_usuario($usuario, $senha);
 
-		if (!empty($retorno->senha)){
+		$where[] = array('parametro1' => 'login_usuario',
+						 'sinal' => '=',
+						 'parametro2' => $usuario);
+
+		$where[] = array('parametro1' => 'senha_usuario',
+						 'sinal' => '=',
+						 'parametro2' => md5($senha));
+
+		$retorno = $new_modulo->select_table('usuario', $where, null, 1);
+
+		if (!empty($retorno->senha_usuario)){
 			Session::put('usuario_nome', $retorno->nome_usuario);
 			Session::put('usuario_permitido', 'S');
 			Session::put('usuario_perfil', $retorno->id_perfil);
-
 			return Redirect::action('HomeController@showWelcome');
 		}else{
 			Session::put('mensagem_erro_login', 'Usuário ou Senha errados.');
