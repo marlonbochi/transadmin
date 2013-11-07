@@ -14,7 +14,6 @@
 	{{ HTML::script('comum/js/jquery.min.js');}}
 	{{ HTML::script('comum/js/main.js') }}
 	{{ HTML::script('comum/js/jquery.masked.input.js') }}
-	{{ HTML::script('comum/js/jquery.prettyPhoto.js') }}
 	{{ HTML::script('comum/js/jNice.js') }}
 	{{ HTML::script('comum/js/my_validate.js') }}	
 	{{ HTML::script('comum/js/jquery.placeholder.min.js') }}	
@@ -22,7 +21,6 @@
 	{{ HTML::style('comum/css/reset.css') }}
 	{{ HTML::style('comum/css/main.css') }}	
 	{{ HTML::style('comum/css/chosen.css') }}	
-	{{ HTML::style('comum/css/prettyPhoto.css') }}	
 	{{ Asset::setDomain(URL::to('/').'/')}}
 
 	<link rel="shortcut icon" href="<?=URL::to('/');?>/favicon.ico">

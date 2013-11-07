@@ -20,3 +20,13 @@ Route::get('clientes/insert', 'ClientesController@action_insert');
 Route::any('login', 'LoginController@showWelcome');
 Route::any('logar', 'LoginController@action_logar');
 Route::any('logout', 'LoginController@action_logout');
+
+Route::any('usuario/insert', 'UsuarioController@action_insert');
+Route::any('usuario/update/{id}', 'UsuarioController@action_update');
+Route::any('usuario/delete/{id}', 'UsuarioController@action_delete');
+Route::any('usuario/{mensagem?}', 'UsuarioController@showWelcome');
+
+Route::any('perfil/insert', 'PerfilController@action_insert');
+Route::any('perfil/update/{id}', 'PerfilController@action_update');
+Route::any('perfil/delete/{id}', 'PerfilController@action_delete');
+Route::any('perfil/{mensagem?}', 'PerfilController@showWelcome');

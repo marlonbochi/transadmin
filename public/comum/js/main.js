@@ -22,5 +22,13 @@ $(document).ready(function(){
             $('.error_form').stop(true, true).slideDown();
         }
     });
+    
+     var mensagem = $('.mensagem').text();
+
+    if (mensagem != ''){
+
+       $('.mensagem').slideDown('slow').delay(3000).slideUp('slow');
+
+    }
 	
 });

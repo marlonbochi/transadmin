@@ -125,6 +125,7 @@ h1 span { display: none; }
 
 #container_body {
     background: #fff url(img/content.gif) repeat-y left top;
+    min-height: 400px;
 }
 
 /* Sidebar ---------------------------------------- */
@@ -160,7 +161,7 @@ h1 span { display: none; }
 
 h2 {
     width: 718px;
-    float: right;
+    float: left;
     color: #646464;
     font-size: 16px;
     line-height: 16px;
@@ -340,6 +341,54 @@ h3 {
     font-size: 12px;
     color: #d30000;
     display: none;
+}
+
+.mensagem{
+    width: 718px;
+    float: left;
+    text-align: center;
+    font-size: 14px;
+    color: green;
+    font-family: Arial, sans-serif, Helvetica;
+    display: none;
+}
+
+.error_form{
+    text-align: center;
+    font-size: 14px;
+    color: red;
+    font-family: Arial, sans-serif, Helvetica;
+    display: none;
+}
+
+.input_file{
+    display: block;
+}
+
+.span_file{
+    display: block;
+    text-align: left;
+}
+
+.pagination{
+    float: left;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.pagination > *{
+    font-size: 14px;
+    font-family: Arial, Sans-serif, Helvetica;
+}
+
+.pagination ul li{
+    float: left;
+    margin-right: 10px;
+}
+
+.negrito{
+    font-weight: bold;
 }
 
 /* Footer ---------------------------------------- */
