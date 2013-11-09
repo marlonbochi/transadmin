@@ -50,11 +50,16 @@ class LoginController extends BaseController
 						 'parametro2' => md5($senha));
 
 		$retorno = $new_modulo->select_table('usuario', $where, null, 1);
+                $where_modulo[] = array('parametro1' => 'id_perfil',
+                                        'sinal' => '=',
+                                        'parametro2' => $retorno->id_perfil);
+                $modulos = $new_modulo->select_table('modulo_perfil', $where_modulo);
 
 		if (!empty($retorno->senha_usuario)){
 			Session::put('usuario_nome', $retorno->nome_usuario);
 			Session::put('usuario_permitido', 'S');
 			Session::put('usuario_perfil', $retorno->id_perfil);
+                        Session::put('usuario_modulos', $modulos);
 			return Redirect::action('HomeController@showWelcome');
 		}else{
 			Session::put('mensagem_erro_login', 'Usuário ou Senha errados.');

@@ -22,8 +22,19 @@ class BaseController extends Controller {
 
 		//Busca modulos e define o menu
 		$modulo_model = New Comum();
-
-		$modulos = $modulo_model->select_table('modulo', null, 'nome_modulo');
+                $modulo_usuario = Session::get('usuario_modulos');
+                if(!empty($modulo_usuario)){
+                    foreach($modulo_usuario as $modulo){
+                        $where[] = array('parametro1' => 'id_modulo',
+                                         'sinal' => '=',
+                                         'parametro2' => $modulo->id_modulo);
+                    }   
+                    $modulos = $modulo_model->select_table('modulo', null, 'nome_modulo', null, $where);
+                }else{
+                    $modulos = null;
+                }
+                
+		
 
 		$menu = View::make('comum.menu');
 		$menu->modulos = $modulos;

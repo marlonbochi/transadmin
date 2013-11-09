@@ -3,7 +3,7 @@
 class Comum extends Eloquent 
 {
 	
-	function select_table($nome_tabela, $where = null, $order = null, $paginacao = null){
+	function select_table($nome_tabela, $where = null, $order = null, $paginacao = null, $WhereOr = null){
 		$resultado = DB::table($nome_tabela);
 					if(!empty($order)){
 						$resultado->orderby($order);
@@ -14,6 +14,12 @@ class Comum extends Eloquent
 							$resultado->where($value['parametro1'],$value['sinal'], $value['parametro2']);
 						}
 					}
+                                        
+                                        if(!empty($WhereOr)){                                            
+                                                foreach ($WhereOr as $value) {
+							$resultado->orwhere($value['parametro1'],$value['sinal'], $value['parametro2']);
+						}
+                                        }
 
 					if(!empty($paginacao)){
 						if($paginacao == 1){
