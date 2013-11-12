@@ -17,6 +17,11 @@ Route::get('cliente/insert', 'ClienteController@action_insert');
 Route::get('cliente/update/{id}', 'ClienteController@action_update');
 Route::get('cliente/delete/{id}', 'ClienteController@action_delete');
 Route::get('cliente/{mensagem?}', 'ClienteController@action_index');
+//modulo de entrega
+Route::get('entrega/insert', 'EntregaController@action_insert');
+Route::get('entrega/update/{id}', 'EntregaController@action_update');
+Route::get('entrega/delete/{id}', 'EntregaController@action_delete');
+Route::get('entrega/{mensagem?}', 'EntregaController@action_index');
 //modulo de login
 Route::any('login', 'LoginController@showWelcome');
 Route::any('logar', 'LoginController@action_logar');

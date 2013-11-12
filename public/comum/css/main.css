@@ -255,7 +255,7 @@ h3 {
 
 #main fieldset .select{
     float: left;
-    width: 150px;
+    min-width: 150px;
 }
 
 #main fieldset .text-long {
@@ -389,6 +389,14 @@ h3 {
 
 .negrito{
     font-weight: bold;
+}
+div.div_cep_origem{
+    float: left;
+    width: 329px;
+}
+div.div_cep_destino{
+    float: left;
+    width: 290px;
 }
 
 /* Footer ---------------------------------------- */
