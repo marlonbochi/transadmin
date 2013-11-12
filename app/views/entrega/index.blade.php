@@ -18,8 +18,8 @@
             <td>{{date("d/m/Y", strtotime($entrega->data_entrega))}}</td>
             <td>{{$entrega->efetuada_entrega == 'S' ? 'Sim':'Não'}}</td>
             <td class="action">
-                <a href="<?php echo URL::to('entrega/update/'.$cliente->id_cliente);?>" class="edit">Editar</a>
-                <a href="<?php echo URL::to('entrega/delete/'.$cliente->id_cliente);?>" onclick="return confirm('Deseja realmente excluir este registro?');" class="delete">Excluir</a>
+                <a href="<?php echo URL::to('entrega/update/'.$entrega->id_entrega);?>" class="edit">Editar</a>
+                <a href="<?php echo URL::to('entrega/delete/'.$entrega->id_entrega);?>" onclick="return confirm('Deseja realmente excluir este registro?');" class="delete">Excluir</a>
             </td>
         </tr>
         <?php } ?>                                  
