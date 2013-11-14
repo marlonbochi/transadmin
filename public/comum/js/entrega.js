@@ -11,18 +11,6 @@ $(document).ready(function(){
                     $('.cidade_origem_endereco').val(data.cidade);
                     $('.uf_origem_endereco').val(data.uf);
 
-                    if(data.logradouro != ''){
-                        $('.logradouro_origem_endereco').attr('readonly', true);
-                    }else{
-                        $('.logradouro_origem_endereco').attr('readonly', false);
-                    }
-
-                    if(data.bairro != ''){
-                        $('.bairro_origem_endereco').attr('readonly', true);
-                    }else{
-                        $('.bairro_origem_endereco').attr('readonly', false);
-                    }
-
                     if(data.cidade != ''){
                         $('.cidade_origem_endereco').attr('readonly', true);
                     }else{
@@ -35,17 +23,14 @@ $(document).ready(function(){
                         $('.uf_origem_endereco').attr('readonly', false);
                     }
                 }else{
-                    alert('Não foi possivel encontrar informação para esse cep!')
-                    $('.logradouro_origem_endereco').attr('readonly', false);
-                    $('.bairro_origem_endereco').attr('readonly', false);
-                    $('.cidade_origem_endereco').attr('readonly', false);        
+                    alert('Não foi possivel encontrar informação para esse cep!');
+                    $('.cidade_origem_endereco').attr('readonly', false);
                     $('.uf_origem_endereco').attr('readonly', false);
                 }
             });
         }else{
-            $('.logradouro_origem_endereco').attr('readonly', false);
-            $('.bairro_origem_endereco').attr('readonly', false);
-            $('.cidade_origem_endereco').attr('readonly', false);        
+            alert('Digite um CEP valido para efetuar a busca!');
+            $('.cidade_origem_endereco').attr('readonly', false);
             $('.uf_origem_endereco').attr('readonly', false);
         }
     });
@@ -61,18 +46,6 @@ $(document).ready(function(){
                     $('.cidade_destino_endereco').val(data.cidade);
                     $('.uf_destino_endereco').val(data.uf);
 
-                    if(data.logradouro != ''){
-                        $('.logradouro_destino_endereco').attr('readonly', true);
-                    }else{
-                        $('.logradouro_destino_endereco').attr('readonly', false);
-                    }
-
-                    if(data.bairro != ''){
-                        $('.bairro_destino_endereco').attr('readonly', true);
-                    }else{
-                        $('.bairro_destino_endereco').attr('readonly', false);
-                    }
-
                     if(data.cidade != ''){
                         $('.cidade_destino_endereco').attr('readonly', true);
                     }else{
@@ -86,18 +59,28 @@ $(document).ready(function(){
                     }
                 }else{
                     alert('Não foi possivel encontrar informação para esse cep!');
-                    $('.logradouro_destino_endereco').attr('readonly', false);
-                    $('.bairro_destino_endereco').attr('readonly', false);
                     $('.cidade_destino_endereco').attr('readonly', false);        
                     $('.uf_destino_endereco').attr('readonly', false);
                 }
             });
         }else{
-            $('.logradouro_destino_endereco').attr('readonly', false);
-            $('.bairro_destino_endereco').attr('readonly', false);
+            alert('Digite um CEP valido para efetuar a busca!');
             $('.cidade_destino_endereco').attr('readonly', false);        
             $('.uf_destino_endereco').attr('readonly', false);
         }
     });
-	
+
+    
+	$('.cep_destino').keydown(function(){
+        if($('.cep_destino').val().length = 0){
+            $('.cidade_destino_endereco').attr('readonly', false);        
+            $('.uf_destino_endereco').attr('readonly', false);
+        }
+    });
+    $('.cep_origem').keydown(function(){
+        if($('.cep_destino').val().length = 0){
+            $('.cidade_origem_endereco').attr('readonly', false);        
+            $('.uf_origem_endereco').attr('readonly', false);
+        }
+    });
 });
