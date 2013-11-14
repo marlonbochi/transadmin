@@ -3,8 +3,13 @@
 class Comum extends Eloquent 
 {
 	
-	function select_table($nome_tabela, $where = null, $order = null, $paginacao = null, $WhereOr = null, $Join = Null){
+	function select_table($nome_tabela, $where = null, $order = null, $paginacao = null, $WhereOr = null, $Join = Null, $select = Null){
             $resultado = DB::table($nome_tabela);
+			
+			if(!empty($select)){
+				$resultado->select($select);
+			}		
+			
             if(!empty($order)){
                 $resultado->orderby($order);
             }
