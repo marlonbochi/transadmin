@@ -3,16 +3,18 @@
 class Comum extends Eloquent 
 {
 	
-	function select_table($nome_tabela, $where = null, $order = null, $paginacao = null, $WhereOr = null, $Join = Null, $select = Null){
+	function select_table($nome_tabela, $where = null, $order = null, $paginacao = null, $WhereOr = null, $Join = null, $select = null){
             $resultado = DB::table($nome_tabela);
 			
 			if(!empty($select)){
 				$resultado->select($select);
 			}		
-			
-            if(!empty($order)){
-                $resultado->orderby($order);
-            }
+
+			if(!empty($Join)){
+                foreach ($Join as $value) {
+                    $resultado->join($value['tabela_join'], $value['parametro1'], $value['sinal'], $value['parametro2']);
+                }
+            }            
 
             if(!empty($where)){
                     foreach ($where as $value) {
@@ -25,11 +27,10 @@ class Comum extends Eloquent
                         $resultado->orwhere($value['parametro1'],$value['sinal'], $value['parametro2']);
                     }
             }
-            if(!empty($Join)){
-                foreach ($Join as $value) {
-                    $resultado->join($value['tabela_join'], $value['parametro1'], $value['sinal'], $value['parametro2']);
-                }
-            }
+
+            if(!empty($order)){
+                $resultado->orderby($order);
+            }            
 
             if(!empty($paginacao)){
                     if($paginacao == 1){

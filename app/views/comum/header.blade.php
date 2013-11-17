@@ -1,5 +1,8 @@
 <div class="header">
-	<h1><a href="#"><span>Transdmin Light</span></a></h1>
+	<h1><a href="{{URL::to('/')}}"></a></h1>
+	<div class="nome_logado">
+		<span>Olá {{Session::get('usuario_nome')}}</span>
+	</div>
     <div class='menu'>    
 	    <ul id="mainNav">
 	    	<li><a href="<?=URL::to('/');?>" class="<?= Request::segment(1) != 'usuarios'? 'active': '';?>">HOME</a></li> <!-- Use the "active" class for the active menu item  -->
@@ -7,4 +10,5 @@
 	    	<li class="logout"><a href="<?=URL::to('logout');?>">LOGOUT</a></li>	    
 	    </ul>
     </div>
+    <div class="clear"></div>
 </div>

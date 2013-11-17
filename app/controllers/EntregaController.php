@@ -30,7 +30,11 @@ class EntregaController extends BaseController
 	public function action_insert()
 	{
 		Asset::add('/comum/js/entrega.js');
-		$view = View::make('entrega.insert');
+		if(Session::has('logradouro_origem_endereco')){
+			$view = View::make('entrega.insert_preenchido');
+		}else{
+			$view = View::make('entrega.insert');
+		}
 		$this->layout->title = 'TransAdmin - Entregas::Inserção';
 
 		//acoes da pagina
@@ -66,7 +70,8 @@ class EntregaController extends BaseController
 			$dados = array('id_cliente' => Input::get('id_cliente'),
 						'id_origem_endereco' => $id_origem_endereco,
 						'id_destino_endereco' => $id_destino_endereco,
-						'data_entrega' => implode("-",array_reverse(explode("/",Input::get('data_entrega')))),
+						'data_entrega' => implode("-",array_reverse(explode("/",Input::get('data_entrega')))),						
+						'km_percorrido_entrega' => str_replace(',', '.', str_replace('.', '', Input::get('km_percorrido_entrega'))),
 						'valor_entrega' => str_replace(',', '.', str_replace('.', '', Input::get('valor_entrega'))),
                     	'valor_km_entrega' => str_replace(',', '.', str_replace('.', '', Input::get('valor_km_entrega'))),
 						'efetuada_entrega' => Input::get('efetuada_entrega'),
@@ -77,6 +82,52 @@ class EntregaController extends BaseController
 		}
 
 		$clientes = $new_modulo->select_table('cliente');
+
+		if(Session::has('logradouro_origem_endereco')){
+			$entrega = array(
+				'logradouro_origem_endereco' => Session::get('logradouro_origem_endereco'),
+				'cep_origem_endereco' => Session::get('cep_origem_endereco'),
+				'numero_origem_endereco' => Session::get('numero_origem_endereco'),
+				'complemento_origem_endereco' => Session::get('complemento_origem_endereco'),
+				'bairro_origem_endereco' => Session::get('bairro_origem_endereco'),
+				'cidade_origem_endereco' => Session::get('cidade_origem_endereco'),
+				'uf_origem_endereco' => Session::get('uf_origem_endereco'),
+
+				//endereco de destino
+				'logradouro_destino_endereco' => Session::get('logradouro_destino_endereco'),
+				'cep_destino_endereco' => Session::get('cep_destino_endereco'),
+				'numero_destino_endereco' => Session::get('numero_destino_endereco'),
+				'complemento_destino_endereco' => Session::get('complemento_destino_endereco'),
+				'bairro_destino_endereco' => Session::get('bairro_destino_endereco'),
+				'cidade_destino_endereco' => Session::get('cidade_destino_endereco'),
+				'uf_destino_endereco' => Session::get('uf_destino_endereco'),
+
+				//restante do formulario
+				'data_entrega' => Session::get('data_entrega'),
+				'valor_km_entrega' => Session::get('valor_km_entrega'),
+				'km_percorrido_entrega' => Session::get('km_percorrido_entrega'),
+				'valor_entrega' => Session::get('valor_entrega')
+			);
+			
+			//apagando as sessões para não sobrecarregar o servidor
+			Session::forget('logradouro_origem_endereco');
+			Session::forget('cep_origem_endereco');
+			Session::forget('numero_origem_endereco');
+			Session::forget('complemento_origem_endereco');
+			Session::forget('bairro_origem_endereco');
+			Session::forget('cidade_origem_endereco');
+			Session::forget('uf_origem_endereco');
+
+			Session::forget('logradouro_destino_endereco');
+			Session::forget('cep_destino_endereco');
+			Session::forget('numero_destino_endereco');
+			Session::forget('complemento_destino_endereco');
+			Session::forget('bairro_destino_endereco');
+			Session::forget('cidade_destino_endereco');
+			Session::forget('uf_destino_endereco');
+
+			$view->entrega = $entrega;
+		}
 
 		$view->clientes = $clientes;
 		$view->endereco = null;
@@ -150,6 +201,7 @@ class EntregaController extends BaseController
 							'id_origem_endereco' => Input::get('id_origem_endereco'),
 							'id_destino_endereco' => Input::get('id_destino_endereco'),
 							'data_entrega' => implode("-",array_reverse(explode("/",Input::get('data_entrega')))),
+							'km_percorrido_entrega' => str_replace(',', '.', str_replace('.', '', Input::get('km_percorrido_entrega'))),
 							'valor_entrega' => str_replace(',', '.', str_replace('.', '', Input::get('valor_entrega'))),
 	                    	'valor_km_entrega' => str_replace(',', '.', str_replace('.', '', Input::get('valor_km_entrega'))),
 							'efetuada_entrega' => Input::get('efetuada_entrega'),

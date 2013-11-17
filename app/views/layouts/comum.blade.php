@@ -22,11 +22,14 @@
 	{{ HTML::style('comum/css/main.css') }}	
 	{{ HTML::style('comum/css/chosen.css') }}	
 	{{ Asset::setDomain(URL::to('/').'/')}}
+	{{ HTML::script('https://www.google.com/jsapi');}}
+	{{ HTML::script('http://maps.google.com/maps/api/js?sensor=false');}}
 
 	<link rel="shortcut icon" href="<?=URL::to('/');?>/favicon.ico">
 	
    	<!-- css files -->
     {{ Asset::css() }}
+	{{ Asset::js() }}
 
 	<!--Script para que o IE interprete adequadamente os CSS3,CSS2 PSEUDO SELECTORES:-->
     <!--[if (gte IE 6)&(lte IE 8)]>
@@ -72,6 +75,5 @@
 			@endif
 		</footer>
 	</div>
-	{{ Asset::js() }}
 </body>
 </html>

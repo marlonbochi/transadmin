@@ -7,6 +7,7 @@ header{
     z-index: 50;
     width: 100%;
     min-width: 960px;
+    margin: 0 0 30px 0;
 }
 footer{
     height: 61px;
@@ -58,6 +59,7 @@ h1 {
     width: 225px;
     height: 28px;
     background: url(img/logo_tcc.png) no-repeat left top;
+    float: left;
 }
 
 h1 a {
@@ -75,7 +77,7 @@ h1 span { display: none; }
     background-color: #eeeeee;    
     height: 37px;
     padding: 6px;
-    margin: 0 0 30px 0;
+    float: left;
 }
 #mainNav {
     width: 948px;
@@ -397,6 +399,17 @@ div.div_cep_origem{
 div.div_cep_destino{
     float: left;
     width: 290px;
+}
+
+div.nome_logado{
+    padding-top: 31px;
+    float: right;
+}
+div.nome_logado span{
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: bold;
+    color: #5494af;
 }
 
 /* Footer ---------------------------------------- */

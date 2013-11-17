@@ -105,13 +105,16 @@
 				<input type="text" class="text-medium data" name='data_entrega' value='{{date("d/m/Y", strtotime($entrega->data_entrega))}}' data-myroles="required">
 			</p>
 			<p>
-				<label>Valor por KM*:</label>
-				<input type="text" class="text-medium" name='valor_km_entrega' value='{{number_format($entrega->valor_km_entrega, 2, ',', '.')}}' data-myroles="required">
+				<label>KMs percorrido:</label>
+				<input type="text" class="text-medium km_percorrido_entrega" name='km_percorrido_entrega' value='{{$entrega->km_percorrido_entrega}}' data-myroles="required">
 			</p>
-			
+			<p>
+				<label>Valor por KM*:</label>
+				<input type="text" class="text-medium valor_km_entrega" name='valor_km_entrega' value='{{number_format($entrega->valor_km_entrega, 2, ',', '.')}}' data-myroles="required">
+			</p>			
 			<p>
 				<label>Valor da Entrega*:</label>
-				<input type="text" class="text-medium" name='valor_entrega' value='{{number_format($entrega->valor_entrega, 2, ',', '.')}}' data-myroles="required">
+				<input type="text" class="text-medium valor_entrega" name='valor_entrega' value='{{number_format($entrega->valor_entrega, 2, ',', '.')}}' data-myroles="required">
 			</p>
 			<p>
 				<label>Entrega Efetuada:</label>

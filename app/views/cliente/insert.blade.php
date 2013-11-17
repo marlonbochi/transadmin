@@ -7,19 +7,19 @@
 		</p>
 		<form action="<?=URL::to('cliente/insert');?>" class='form'>
 			<p>
-				<label>Nome Completo:</label>
+				<label>Nome Completo*:</label>
 				<input type="text" class="text-long" name='nome_cliente' data-myroles="required"/>
 			</p>
 			<p>
-				<label>E-mail:</label>
+				<label>E-mail*:</label>
 				<input type="text" class="text-long" name='email_cliente' data-myroles="required|email"/>
 			</p>
                         <p>
-				<label>Data de Nascimento:</label>
+				<label>Data de Nascimento*:</label>
 				<input type="text" class="text-small data" name='data_nascimento_cliente' data-myroles="required" style='width: 60px;'/>
 			</p>
 			<p>
-				<label>CPF:</label>
+				<label>CPF*:</label>
 				<input type="text" class="text-medium cpf" name='cpf_cliente' data-myroles="required"/>
 			</p>
                         <p>
@@ -27,7 +27,7 @@
 				<input type="text" class="text-medium" name='rg_cliente'/>
 			</p>
 			<p>
-				<label>Telefone:</label>
+				<label>Telefone*:</label>
 				<input type="text" class="text-medium telefone" name='telefone_cliente' data-myroles="required"/>
 			</p>
 			<p>
@@ -40,32 +40,32 @@
 			</p>
 			<p></p>
 			<p>
-				<label>CEP:</label>
+				<label>CEP*:</label>
 				<input type="text" class="text-medium cep" name='cep_endereco' data-myroles="required" style='width: 55px;'/>
 				<input type="button" class='button-submit busca_cep' value="Busca CEP" style='float: left;'/>
 			</p>
 			<p>
-				<label>Logradouro:</label>
+				<label>Logradouro*:</label>
 				<input type="text" class="text-long logradouro_endereco" maxlength=155 name='logradouro_endereco' data-myroles="required"/>
 			</p>
 			<p>
 				<label>Número:</label>
-				<input type="text" class="text-small" name='numero_endereco' maxlength=10 data-myroles="required"/>
+				<input type="text" class="text-small" name='numero_endereco' maxlength=10/>
 			</p>
 			<p>
 				<label>Complemento:</label>
 				<input type="text" class="text-long" name='complemento_endereco' maxlength=45/>
 			</p>
 			<p>
-				<label>Bairro:</label>
+				<label>Bairro*:</label>
 				<input type="text" class="text-medium bairro_endereco" maxlength=45 maxlength=45 name='bairro_endereco' data-myroles="required" />
 			</p>
 			<p>
-				<label>Cidade:</label>
+				<label>Cidade*:</label>
 				<input type="text" class="text-long cidade_endereco" maxlength=100 name='cidade_endereco' data-myroles="required"/>
 			</p>
 			<p>
-				<label>UF:</label>
+				<label>UF*:</label>
 				<input type="text" class="text-small uf_endereco" maxlength=2 name='uf_endereco' data-myroles="required"/>
 			</p>			
 		    <input type="submit" class='button-submit' value="Salvar" />

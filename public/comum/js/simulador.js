@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    
+
     $('.busca_cep_origem').click(function(){
         var cep = $('.cep_origem').val();
         if (cep != undefined && cep != ''){
@@ -84,7 +84,41 @@ $(document).ready(function(){
         }
     });
 
-    $('.valor_entrega').focus(function(){
+    $('.simular').click(function(){
+        var endereco_origem = $('.cep_origem_endereco').val() + ' ' + 
+                              $('.logradouro_origem_endereco').val() + ' ' + 
+                              $('.numero_origem_endereco').val() + ' ' + 
+                              $('.bairro_origem_endereco').val() + ' ' +
+                              $('.cidade_origem_endereco').val() + ' ' +
+                              $('.uf_origem_endereco').val();
+
+        var endereco_destino = $('.cep_destino_endereco').val() + ' ' + 
+                               $('.logradouro_destino_endereco').val() + ' ' + 
+                               $('.numero_destino_endereco').val() + ' ' + 
+                               $('.bairro_destino_endereco').val() + ' ' +
+                               $('.cidade_destino_endereco').val() + ' ' +
+                               $('.uf_destino_endereco').val();
+
+
+        //Instanciar o DistanceMatrixService
+        var service = new google.maps.DistanceMatrixService();
+        //executar o DistanceMatrixService
+        service.getDistanceMatrix(
+          {
+              //Origem
+              origins: [endereco_origem],
+              //Destino
+              destinations: [endereco_destino],
+              //Modo (DRIVING | WALKING | BICYCLING)
+              travelMode: google.maps.TravelMode.DRIVING,
+              //Sistema de medida (METRIC | IMPERIAL)
+              unitSystem: google.maps.UnitSystem.METRIC
+              //Vai chamar o callback
+          }, callback);
+            
+    });
+
+   $('.valor_entrega').focus(function(){
         if($('.valor_entrega').val() == '' || $('.valor_entrega').val() == undefined){
             var valor_km = $('.valor_km_entrega').val();
             valor_km = valor_km.replace(',','.');
@@ -94,3 +128,15 @@ $(document).ready(function(){
         }
     });
 });
+
+function callback(response, status) {
+    //Verificar o Status
+    if (status != google.maps.DistanceMatrixStatus.OK)
+        //Se o status não for "OK"
+        alert('Ocorreu um erro na procura do endereço, tente novamente mais tarde ou revise os endereços.')
+    else {        
+        $('.km_percorrido_entrega').val((response.rows[0].elements[0].distance.value)/1000);
+        //Atualizar o mapa
+        $("#map").attr("src", "https://maps.google.com/maps?saddr=" + response.originAddresses + "&daddr=" + response.destinationAddresses + "&output=embed");
+    }
+}

@@ -17,7 +17,7 @@ class BaseController extends Controller {
 		}
 
 		if ((Session::get('usuario_permitido') != 'S' or Session::get('usuario_nome') == '') and Request::segment(1) != 'login'){
-			echo '<meta http-equiv="refresh" content="0;url='.URL::to('login').'">';
+			echo '<script language="JavaScript">location.href="'.URL::to('login').'"</script>';
 		}
 
 		//Busca modulos e define o menu

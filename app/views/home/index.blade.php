@@ -1,12 +1,17 @@
 <div class="conteudo">
+
     <div id="main">
+    <input type="text" class="url_base" value='{{URL::to("/")}}' style='display:none;'>
+    <div id="area_grafico"></div>
+    <p>
+        <h3 style='padding: 0px;'>Entregas para os Próximos 7 dias</h3>
+    </p>
     <table cellpadding="0" cellspacing="0">
     	<tr>
             <th>Cliente</th>
             <th>Valor Entrega</th>
             <th>Data da Entrega</th>
             <th>Efetuada</th>
-            <th></th>
         </tr>     	
         <?php foreach ($entregas as $entrega) { ?>
         <tr>
@@ -17,6 +22,5 @@
         </tr>
         <?php } ?>                                  
     </table>
-    {{$entregas->links()}}
     </div>
 </div>

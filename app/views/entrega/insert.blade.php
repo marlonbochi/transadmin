@@ -98,13 +98,17 @@
 				<input type="text" class="text-medium data" name='data_entrega' data-myroles="required">
 			</p>
 			<p>
+				<label>KMs percorrido:</label>
+				<input type="text" class="text-medium km_percorrido_entrega" name='km_percorrido_entrega' data-myroles="required">
+			</p>
+			<p>
 				<label>Valor por KM*:</label>
-				<input type="text" class="text-medium" name='valor_km_entrega' data-myroles="required">
+				<input type="text" class="text-medium valor_km_entrega" name='valor_km_entrega' data-myroles="required">
 			</p>
 			
 			<p>
 				<label>Valor da Entrega*:</label>
-				<input type="text" class="text-medium" name='valor_entrega' data-myroles="required">
+				<input type="text" class="text-medium valor_entrega" name='valor_entrega' data-myroles="required">
 			</p>
 			<p>
 				<label>Entrega Efetuada:</label>

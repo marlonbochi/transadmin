@@ -59,7 +59,7 @@ class LoginController extends BaseController
 			Session::put('usuario_nome', $retorno->nome_usuario);
 			Session::put('usuario_permitido', 'S');
 			Session::put('usuario_perfil', $retorno->id_perfil);
-                        Session::put('usuario_modulos', $modulos);
+            Session::put('usuario_modulos', $modulos);
 			return Redirect::action('HomeController@showWelcome');
 		}else{
 			Session::put('mensagem_erro_login', 'Usuário ou Senha errados.');
