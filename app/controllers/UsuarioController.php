@@ -77,7 +77,7 @@ class UsuarioController extends BaseController
 		if (Input::has('login_usuario')) {			
 			$array_update['login_usuario'] = Input::get('login_usuario');
 
-			$senha = Input::get('senha_login');
+			$senha = Input::get('senha_usuario');
 			if (!empty($senha)){
 				$array_update['senha_usuario'] = md5(Input::get('senha_usuario'));
 			}	
