@@ -85,20 +85,78 @@ $(document).ready(function(){
     });
 
     $('.simular').click(function(){
-        var endereco_origem = $('.cep_origem_endereco').val() + ' ' + 
-                              $('.logradouro_origem_endereco').val() + ' ' + 
-                              $('.numero_origem_endereco').val() + ' ' + 
-                              $('.bairro_origem_endereco').val() + ' ' +
-                              $('.cidade_origem_endereco').val() + ' ' +
-                              $('.uf_origem_endereco').val();
 
-        var endereco_destino = $('.cep_destino_endereco').val() + ' ' + 
-                               $('.logradouro_destino_endereco').val() + ' ' + 
-                               $('.numero_destino_endereco').val() + ' ' + 
-                               $('.bairro_destino_endereco').val() + ' ' +
-                               $('.cidade_destino_endereco').val() + ' ' +
-                               $('.uf_destino_endereco').val();
+    	var endereco_origem = '';
+    	if($('.cep_origem').val() != '' && $('.cep_origem').val() != undefined){
+    		endereco_origem += $('.cep_origem').val();
+    	}
+    	if($('.logradouro_origem_endereco').val() != '' && $('.logradouro_origem_endereco').val() != undefined){
+    		if(endereco_origem != '' && endereco_origem != undefined){
+    			endereco_origem += ', '
+    		}
+    		endereco_origem += $('.logradouro_origem_endereco').val();
+    	}
+    	if($('.numero_origem_endereco').val() != '' && $('.numero_origem_endereco').val() != undefined){
+    		if(endereco_origem != '' && endereco_origem != undefined){
+    			endereco_origem += ', '
+    		}
+    		endereco_origem += $('.numero_origem_endereco').val();
+    	}
+    	if($('.bairro_origem_endereco').val() != '' && $('.bairro_origem_endereco').val() != undefined){
+    		if(endereco_origem != '' && endereco_origem != undefined){
+    			endereco_origem += ', '
+    		}
+    		endereco_origem += $('.bairro_origem_endereco').val();
+    	}
+    	if($('.cidade_origem_endereco').val() != '' && $('.cidade_origem_endereco').val() != undefined){
+    		if(endereco_origem != '' && endereco_origem != undefined){
+    			endereco_origem += ', '
+    		}
+    		endereco_origem += $('.cidade_origem_endereco').val();
+    	}
+    	if($('.uf_origem_endereco').val() != '' && $('.uf_origem_endereco').val() != undefined){
+    		if(endereco_origem != '' && endereco_origem != undefined){
+    			endereco_origem += ', '
+    		}
+    		endereco_origem += $('.uf_origem_endereco').val();
+    	}
 
+        var endereco_destino = '';
+    	if($('.cep_destino').val() != '' && $('.cep_destino').val() != undefined){
+    		endereco_destino += $('.cep_destino').val();
+    	}
+    	if($('.logradouro_destino_endereco').val() != '' && $('.logradouro_destino_endereco').val() != undefined){
+    		if(endereco_destino != '' && endereco_destino != undefined){
+    			endereco_destino += ', '
+    		}
+    		endereco_destino += $('.logradouro_destino_endereco').val();
+    	}
+    	if($('.numero_destino_endereco').val() != '' && $('.numero_destino_endereco').val() != undefined){
+    		if(endereco_destino != '' && endereco_destino != undefined){
+    			endereco_destino += ', '
+    		}
+    		endereco_destino += $('.numero_destino_endereco').val();
+    	}
+    	if($('.bairro_destino_endereco').val() != '' && $('.bairro_destino_endereco').val() != undefined){
+    		if(endereco_destino != '' && endereco_destino != undefined){
+    			endereco_destino += ', '
+    		}
+    		endereco_destino += $('.bairro_destino_endereco').val();
+    	}
+    	if($('.cidade_destino_endereco').val() != '' && $('.cidade_destino_endereco').val() != undefined){
+    		if(endereco_destino != '' && endereco_destino != undefined){
+    			endereco_destino += ', '
+    		}
+    		endereco_destino += $('.cidade_destino_endereco').val();
+    	}
+    	if($('.uf_destino_endereco').val() != '' && $('.uf_destino_endereco').val() != undefined){
+    		if(endereco_destino != '' && endereco_destino != undefined){
+    			endereco_destino += ', '
+    		}
+    		endereco_destino += $('.uf_destino_endereco').val();
+    	}
+    	console.log(endereco_origem);
+    	console.log(endereco_destino);
 
         //Instanciar o DistanceMatrixService
         var service = new google.maps.DistanceMatrixService();
@@ -134,8 +192,11 @@ function callback(response, status) {
     if (status != google.maps.DistanceMatrixStatus.OK)
         //Se o status não for "OK"
         alert('Ocorreu um erro na procura do endereço, tente novamente mais tarde ou revise os endereços.')
-    else {        
-        $('.km_percorrido_entrega').val((response.rows[0].elements[0].distance.value)/1000);
+    else {     
+    	console.log(response);
+    	if(response.rows[0].elements[0].status != "NOT_FOUND"){
+        	$('.km_percorrido_entrega').val((response.rows[0].elements[0].distance.value)/1000);
+        }
         //Atualizar o mapa
         $("#map").attr("src", "https://maps.google.com/maps?saddr=" + response.originAddresses + "&daddr=" + response.destinationAddresses + "&output=embed");
     }
