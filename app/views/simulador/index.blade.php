@@ -22,7 +22,7 @@
                     </p>
                     <p>
                         <label>Número*:</label>
-                        <input type="text" class="text-small numero_origem_endereco" name='numero_origem_endereco' maxlength=10 data-myroles="required"/>
+                        <input type="text" class="text-small numero_origem_endereco" name='numero_origem_endereco' maxlength=10 />
                     </p>
                     <p>
                         <label>Complemento:</label>
@@ -57,7 +57,7 @@
                     </p>
                     <p>
                         <label>Número*:</label>
-                        <input type="text" class="text-small numero_destino_endereco" name='numero_destino_endereco' maxlength=10 data-myroles="required"/>
+                        <input type="text" class="text-small numero_destino_endereco" name='numero_destino_endereco' maxlength=10 />
                     </p>
                     <p>
                         <label>Complemento:</label>
@@ -98,7 +98,8 @@
                 <input type="text" class="text-medium valor_entrega" name='valor_entrega' data-myroles="required">
             </p>
             <p>
-                <input type="submit" class="button-submit" value="Criar Entrega" >
+                <a class='cancelar_btn cancelar' href="{{URL::to('/')}}">Cancelar</a>
+                <input type="submit" class="button-submit btn_salvar" value="Criar Entrega" >
             </p>
         </form>
     </fieldset>
