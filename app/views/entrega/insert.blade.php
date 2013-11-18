@@ -121,7 +121,10 @@
 				<label>Observação:</label>
 				<textarea name="observacao_entrega" cols="30" rows="10"></textarea>
 			</p>
-		    <input type="submit" class='button-submit' value="Salvar" />
+		    <p>
+				<a class='cancelar_btn cancelar' href="{{URL::to('entrega')}}">Cancelar</a>
+			    <input type="submit" class='button-submit btn_salvar' value="Salvar" />
+		    </p>
 		</form>
 	</fieldset>
 </div>

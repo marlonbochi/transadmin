@@ -67,8 +67,11 @@
 			<p>
 				<label>UF*:</label>
 				<input type="text" class="text-small uf_endereco" maxlength=2 name='uf_endereco' data-myroles="required"/>
-			</p>			
-		    <input type="submit" class='button-submit' value="Salvar" />
+			</p>		
+			<p>
+				<a class='cancelar_btn cancelar' href="{{URL::to('cliente')}}">Cancelar</a>
+			    <input type="submit" class='button-submit btn_salvar' value="Salvar" />
+		    </p>	
 		</form>
 	</fieldset>
 </div>

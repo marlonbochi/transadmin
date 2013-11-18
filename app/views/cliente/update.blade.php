@@ -69,7 +69,10 @@
 				<label>UF*:</label>
 				<input type="text" class="text-long uf_endereco" name='uf_endereco' data-myroles="required" value='{{$endereco->uf_endereco}}'/>
 			</p>
-		    <input type="submit" class='button-submit' value="Salvar" />
+		    <p>
+				<a class='cancelar_btn cancelar' href="javascript:history.go(-1);">Voltar</a>
+			    <input type="submit" class='button-submit btn_salvar' value="Salvar" />
+		    </p>	
 		</form>
 	</fieldset>
 </div>

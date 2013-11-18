@@ -411,6 +411,25 @@ div.nome_logado span{
     font-weight: bold;
     color: #5494af;
 }
+.cancelar_btn{
+    font: 11px Arial, Helvetica, sans-serif;
+    color: #646464;
+    width: 94px;
+    height: 23px;
+    padding-top: 7px;
+    cursor: pointer;
+    border: none;
+    background: url(img/button-submit.gif) no-repeat left top;
+    display: block;
+    float: left;
+    margin-left: 240px;
+    margin-top: 10px;
+}
+.btn_salvar{
+    margin-left: 10px;
+    float: left;
+    margin-top: 10px;
+}
 
 /* Footer ---------------------------------------- */
 

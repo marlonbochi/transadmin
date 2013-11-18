@@ -24,7 +24,10 @@
 					<?php } ?>
 				</select>
 			</p>
-		    <input type="submit" class='button-submit' value="Enviar" />
+		    <p>
+				<a class='cancelar_btn cancelar' href="{{URL::to('usuario')}}">Cancelar</a>
+			    <input type="submit" class='button-submit btn_salvar' value="Salvar" />
+		    </p>
 		</form>
 	</fieldset>
 </div>

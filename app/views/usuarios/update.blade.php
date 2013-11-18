@@ -26,7 +26,10 @@
 				</select>
 			</p>
 			<input type="text" name='confirma' value='S' style='display:none;'>
-		    <input type="submit" class='button-submit' value="Enviar" />
+		    <p>
+				<a class='cancelar_btn cancelar' href="javascript:history.go(-1);">Voltar</a>
+			    <input type="submit" class='button-submit btn_salvar' value="Salvar" />
+		    </p>
 		</form>
 	</fieldset>
 </div>

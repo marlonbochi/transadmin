@@ -127,7 +127,10 @@
 				<label>Observação:</label>
 				<textarea name="observacao_entrega" cols="30" rows="10">{{$entrega->observacao_entrega}}</textarea>
 			</p>
-		    <input type="submit" class='button-submit' value="Salvar" />
+		    <p>
+				<a class='cancelar_btn cancelar' href="javascript:history.go(-1);">Voltar</a>
+			    <input type="submit" class='button-submit btn_salvar' value="Salvar" />
+		    </p>
 		</form>
 	</fieldset>
 </div>
